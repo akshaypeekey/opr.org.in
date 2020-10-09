@@ -17,6 +17,18 @@ class Home(TemplateView):
         return render(request, self.template_name, context)
 
 
+class Index(TemplateView):
+    model = Index
+    template_name = "index.html"
+    form_class = IndexForm
+    def get(self, request, *args, **kwargs):
+
+        form = self.form_class
+        context = {}
+        context['form'] = form
+        return render(request, self.template_name, context)
+
+
 class About(TemplateView):
     model = About
     template_name = "about.html"

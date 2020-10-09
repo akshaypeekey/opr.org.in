@@ -20,6 +20,7 @@ from backend.views import *
 
 urlpatterns = [
     path('dashboard/', Home.as_view(), name='dashboard'),
+    path('index/', Index.as_view(), name='index'),
     path('about/', About.as_view(), name='about'),
     path('vision/', Vision.as_view(), name='vision'),
     path('events/', Events.as_view(), name='events'),

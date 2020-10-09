@@ -1,10 +1,112 @@
 {% extends 'base.html' %}
 {% block content %}
           <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="row page-title-header">
+              <div class="col-12">
+                <div class="page-header">
+                  <h4 class="page-title">Vision & Mission</h4>
+                </div>
+              </div>
+            </div>
+            <!-- Page Title Header Ends-->
 
 
+            <div class="row">
+              <div class="col-md-12 align-items-center grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Vision & Mission Page Contents</h4>
+                    <form class="forms-sample">
 
+                      <div class="form-group">
+                        <label for="exampleTextarea1">Paragraph 1</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="5"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleTextarea2">Paragraph 2</label>
+                        <textarea class="form-control" id="exampleTextarea2" rows="5"></textarea>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleTextarea3">Paragraph 1</label>
+                            <textarea class="form-control" id="exampleTextarea3" rows="5"></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleTextarea4">Paragraph 2</label>
+                            <textarea class="form-control" id="exampleTextarea4" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleTextarea5">Paragraph 3</label>
+                            <textarea class="form-control" id="exampleTextarea5" rows="5"></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleTextarea6">Paragraph 4</label>
+                            <textarea class="form-control" id="exampleTextarea6" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Constitution for the People</label>
+                              <br>
+                            <input type="file" name="CP" class="file-upload">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Constitution of the OPR</label>
+                              <br>
+                            <input type="file" name="COPR" class="file-upload">
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="exampleTextarea7">OPR Manifesto Name</label>
+                            <input type="text" id="exampleTextarea7" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Manifesto</label>
+                              <br>
+                            <input type="file" name="OPR Manifesto[]" class="file-upload">
+                          </div>
+                        </div>
+                        <div class="col-md-2 mt-4">
+                          <button class="btn btn-success">Add</button>
+                          <button class="btn btn-danger">Delete</button>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <button type="submit" class="btn btn-success mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">

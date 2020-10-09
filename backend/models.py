@@ -21,7 +21,6 @@ class About(models.Model):
     about_title = models.CharField(max_length=100)
     about_us_one = models.CharField(max_length=200)
     about_us_two = models.CharField(max_length=200)
-    about_number_title = models.CharField(max_length=200)
     about_number_one = models.IntegerField()
     about_number_two = models.IntegerField()
     about_number_three = models.IntegerField()
