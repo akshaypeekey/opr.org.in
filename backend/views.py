@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import *
 from .forms import *
 from .models import *
-
 
 
 class Home(TemplateView):
@@ -12,21 +12,22 @@ class Home(TemplateView):
     def get(self, request, *args, **kwargs):
 
         form = self.form_class
-        context = {}
-        context['form'] = form
+        context = {'form': form}
         return render(request, self.template_name, context)
 
 
-class Index(TemplateView):
+class IndexUpdateView(UpdateView):
     model = Index
-    template_name = "index.html"
     form_class = IndexForm
-    def get(self, request, *args, **kwargs):
+    template_name = 'index.html'
+    success_url = reverse_lazy('dashboard')
 
-        form = self.form_class
-        context = {}
-        context['form'] = form
-        return render(request, self.template_name, context)
+
+class AboutUpdateView(UpdateView):
+    model = About
+    form_class = AboutForm
+    template_name = 'about.html'
+    success_url = reverse_lazy('dashboard')
 
 
 class About(TemplateView):
