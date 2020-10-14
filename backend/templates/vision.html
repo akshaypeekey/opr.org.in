@@ -4,6 +4,14 @@
             <!-- Page Title Header Starts-->
             <div class="row page-title-header">
               <div class="col-12">
+                {% if messages %}
+                  <div class="alert alert-success">
+                      {% for msg in messages %}
+                      {% if message.tags %} class="{{ message.tags }}"{% endif %}
+                        {{ msg }}
+                      {% endfor %}
+                  </div>
+                {% endif %}
                 <div class="page-header">
                   <h4 class="page-title">Vision & Mission</h4>
                 </div>
@@ -17,42 +25,48 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Vision & Mission Page Contents</h4>
-                    <form class="forms-sample">
-
+                    <form class="forms-sample" method="post">
+                      {% csrf_token %}
                       <div class="form-group">
-                        <label for="exampleTextarea1">Paragraph 1</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="5"></textarea>
+                        <label>Vision Paragraph 1</label>
+                        {{form.vision_para_one}}
+                        <div style="color: red;">{{form.vision_para_one.errors}}</div>
                       </div>
                       <div class="form-group">
-                        <label for="exampleTextarea2">Paragraph 2</label>
-                        <textarea class="form-control" id="exampleTextarea2" rows="5"></textarea>
+                        <label>Vision Paragraph 2</label>
+                        {{form.vision_para_two}}
+                        <div style="color: red;">{{form.vision_para_two.errors}}</div>
                       </div>
 
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea3">Paragraph 1</label>
-                            <textarea class="form-control" id="exampleTextarea3" rows="5"></textarea>
+                            <label>Mission Paragraph 1</label>
+                            {{form.mission_para_one}}
+                            <div style="color: red;">{{form.mission_para_one.errors}}</div>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea4">Paragraph 2</label>
-                            <textarea class="form-control" id="exampleTextarea4" rows="5"></textarea>
+                            <label>Mission Paragraph 2</label>
+                            {{form.mission_para_two}}
+                            <div style="color: red;">{{form.mission_para_two.errors}}</div>
                           </div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea5">Paragraph 3</label>
-                            <textarea class="form-control" id="exampleTextarea5" rows="5"></textarea>
+                            <label>Mission Paragraph 3</label>
+                            {{form.mission_para_three}}
+                            <div style="color: red;">{{form.mission_para_three.errors}}</div>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea6">Paragraph 4</label>
-                            <textarea class="form-control" id="exampleTextarea6" rows="5"></textarea>
+                            <label>Mission Paragraph 4</label>
+                            {{form.mission_para_four}}
+                            <div style="color: red;">{{form.mission_para_four.errors}}</div>
                           </div>
                         </div>
                       </div>
@@ -78,8 +92,9 @@
                       <div class="row">
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="exampleTextarea7">OPR Manifesto Name</label>
-                            <input type="text" id="exampleTextarea7" class="form-control" />
+                            <label>OPR Manifesto Name</label>
+                            {{form.manifesto_language}}
+                            <div style="color: red;">{{form.manifesto_language.errors}}</div>
                           </div>
                         </div>
                         <div class="col-md-4">
@@ -96,7 +111,7 @@
                       </div>
                       <hr>
 
-                      <button type="submit" class="btn btn-success mr-2">Submit</button>
+                      <input type="submit" class="btn btn-success mr-2"/>
                       <button class="btn btn-light">Cancel</button>
 
                     </form>

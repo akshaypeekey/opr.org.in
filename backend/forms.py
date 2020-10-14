@@ -6,7 +6,7 @@ from backend.models import *
 class IndexForm(ModelForm):
     class Meta:
         model = Index
-        fields = "__all__"
+        exclude = ['index_title']
         widgets = {
             'index_about_one': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
             'index_about_two': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
@@ -25,7 +25,7 @@ class IndexForm(ModelForm):
 class AboutForm(ModelForm):
     class Meta:
         model = About
-        fields = "__all__"
+        exclude = ['about_title']
         widgets = {
             'about_us_one': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
             'about_us_two': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
@@ -41,13 +41,13 @@ class AboutForm(ModelForm):
         }
 
         def clean(self):
-            pass
+            print("inside clean")
 
 
 class VisionForm(ModelForm):
     class Meta:
         model = Vision
-        fields = "__all__"
+        exclude = ['vision_title']
         widgets = {
             'vision_para_one': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
             'vision_para_two': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
@@ -68,7 +68,14 @@ class VisionForm(ModelForm):
 class EventsForm(ModelForm):
     class Meta:
         model = Events
-        fields = "__all__"
+        exclude = ['events_title']
+        widgets = {
+            'events_para_one': forms.Textarea(attrs={'class': 'form-control', 'rows': '7'}),
+            'events_para_two': forms.Textarea(attrs={'class': 'form-control', 'rows': '7'}),
+            'events_para_three': forms.Textarea(attrs={'class': 'form-control', 'rows': '7'}),
+            'events_para_four': forms.Textarea(attrs={'class': 'form-control', 'rows': '7'}),
+        }
+
 
         def clean(self):
             pass

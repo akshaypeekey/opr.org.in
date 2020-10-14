@@ -4,6 +4,14 @@
             <!-- Page Title Header Starts-->
             <div class="row page-title-header">
               <div class="col-12">
+                {% if messages %}
+                  <div class="alert alert-success">
+                      {% for msg in messages %}
+                      {% if message.tags %} class="{{ message.tags }}"{% endif %}
+                        {{ msg }}
+                      {% endfor %}
+                  </div>
+                {% endif %}
                 <div class="page-header">
                   <h4 class="page-title">Events</h4>
                 </div>
@@ -17,34 +25,37 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Events Page Contents</h4>
-                    <form class="forms-sample">
-
-
+                    <form class="forms-sample" method="post">
+                      {% csrf_token %}
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea3">Paragraph 1</label>
-                            <textarea class="form-control" id="exampleTextarea3" rows="7"></textarea>
+                            <label>HOW IT STARTED</label>
+                            {{form.events_para_one}}
+                            <div style="color: red;">{{form.events_para_one.errors}}</div>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea4">Paragraph 2</label>
-                            <textarea class="form-control" id="exampleTextarea4" rows="7"></textarea>
+                            <label>THE WORK IN AUSTRALIA AND INDIA</label>
+                            {{form.events_para_two}}
+                            <div style="color: red;">{{form.events_para_two.errors}}</div>
                           </div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea5">Paragraph 3</label>
-                            <textarea class="form-control" id="exampleTextarea5" rows="7"></textarea>
+                            <label>THE VATTOLI GROUP</label>
+                            {{form.events_para_three}}
+                            <div style="color: red;">{{form.events_para_three.errors}}</div>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label for="exampleTextarea6">Paragraph 4</label>
-                            <textarea class="form-control" id="exampleTextarea6" rows="7"></textarea>
+                            <label>THE NEXT STEP</label>
+                            {{form.events_para_four}}
+                            <div style="color: red;">{{form.events_para_four.errors}}</div>
                           </div>
                         </div>
                       </div>
@@ -52,7 +63,7 @@
 
                       <hr>
 
-                      <button type="submit" class="btn btn-success mr-2">Submit</button>
+                      <input type="submit" class="btn btn-success mr-2"/>
                       <button class="btn btn-light">Cancel</button>
 
                     </form>

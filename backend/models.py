@@ -54,10 +54,10 @@ class Vision(models.Model):
 
 class Events(models.Model):
     events_title = models.CharField(max_length=10)
-    events_para_one = models.CharField(max_length=500)
-    events_para_two = models.CharField(max_length=500)
-    events_para_three = models.CharField(max_length=500)
-    events_para_four = models.CharField(max_length=500)
+    events_para_one = models.CharField(max_length=1000)
+    events_para_two = models.CharField(max_length=1000)
+    events_para_three = models.CharField(max_length=1000)
+    events_para_four = models.CharField(max_length=1000)
 
     def __str__(self):
         return self.events_title

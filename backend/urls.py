@@ -22,8 +22,9 @@ urlpatterns = [
     path('dashboard/', Home.as_view(), name='dashboard'),
     path('index/<pk>/', IndexUpdateView.as_view(), name='index'),
     path('about/<pk>/', AboutUpdateView.as_view(), name='about'),
-    path('vision/', Vision.as_view(), name='vision'),
-    path('events/', Events.as_view(), name='events'),
+    path('vision/<pk>/', VisionUpdateView.as_view(), name='vision'),
+    path('events/<pk>/', EventsUpdateView.as_view(), name='events'),
     path('contact/', Contact.as_view(), name='contact'),
+    path('registred-user/', RegisteredUser.as_view(), name='registred-user'),
 
 ]

@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import *
 from .forms import *
 from .models import *
@@ -16,59 +17,67 @@ class Home(TemplateView):
         return render(request, self.template_name, context)
 
 
-class IndexUpdateView(UpdateView):
+class IndexUpdateView(SuccessMessageMixin, UpdateView):
     model = Index
     form_class = IndexForm
     template_name = 'index.html'
+    success_message = 'Data Updated Successfully!!!!'
+
     success_url = reverse_lazy('dashboard')
 
+    def get_success_url(self):
+        return self.request.path
 
-class AboutUpdateView(UpdateView):
+
+class AboutUpdateView(SuccessMessageMixin, UpdateView):
     model = About
     form_class = AboutForm
     template_name = 'about.html'
+    success_message = 'Data Updated Successfully!!!!'
+
     success_url = reverse_lazy('dashboard')
 
-
-class About(TemplateView):
-    model = About
-    template_name = "about.html"
-    form_class = AboutForm
-    def get(self, request, *args, **kwargs):
-
-        form = self.form_class
-        context = {}
-        context['form'] = form
-        return render(request, self.template_name, context)
+    def get_success_url(self):
+        return self.request.path
 
 
-class Vision(TemplateView):
+class VisionUpdateView(SuccessMessageMixin, UpdateView):
     model = Vision
-    template_name = "vision.html"
     form_class = VisionForm
-    def get(self, request, *args, **kwargs):
+    template_name = 'vision.html'
+    success_message = 'Data Updated Successfully!!!!'
+    success_url = reverse_lazy('dashboard')
 
-        form = self.form_class
-        context = {}
-        context['form'] = form
-        return render(request, self.template_name, context)
+    def get_success_url(self):
+        return self.request.path
 
 
-class Events(TemplateView):
+class EventsUpdateView(SuccessMessageMixin, UpdateView):
     model = Events
-    template_name = "events.html"
     form_class = EventsForm
-    def get(self, request, *args, **kwargs):
+    template_name = 'events.html'
+    success_message = 'Data Updated Successfully!!!!'
+    success_url = reverse_lazy('dashboard')
 
-        form = self.form_class
-        context = {}
-        context['form'] = form
-        return render(request, self.template_name, context)
+    def get_success_url(self):
+        return self.request.path
 
 
 class Contact(TemplateView):
     model = Contact
     template_name = "contact.html"
+    form_class = ContactForm
+    def get(self, request, *args, **kwargs):
+
+        form = self.form_class
+        context = {}
+        context['form'] = form
+        return render(request, self.template_name, context)
+
+
+class RegisteredUser(TemplateView):
+    model = Contact
+    template_name = "registration.html"
     form_class = ContactForm
     def get(self, request, *args, **kwargs):
 
