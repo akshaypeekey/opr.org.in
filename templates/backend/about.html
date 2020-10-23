@@ -1,0 +1,131 @@
+{% extends 'backend/base.html' %}
+{% block content %}
+          <div class="content-wrapper">
+            <!-- Page Title Header Starts-->
+            <div class="row page-title-header">
+              <div class="col-12">
+                {% if messages %}
+                  <div class="alert alert-success">
+                      {% for msg in messages %}
+                      {% if message.tags %} class="{{ message.tags }}"{% endif %}
+                        {{ msg }}
+                      {% endfor %}
+                  </div>
+                {% endif %}
+                <div class="page-header">
+                  <h4 class="page-title">About</h4>
+                </div>
+              </div>
+            </div>
+            <!-- Page Title Header Ends-->
+
+
+            <div class="row">
+              <div class="col-md-12 align-items-center grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">About Page Contents</h4>
+                    <form class="forms-sample" method="post">
+                      {% csrf_token %}
+
+                      <div class="form-group">
+                        <label>Paragraph 1</label>
+                        {{form.about_us_one}}
+                        <div style="color: red;">{{form.about_us_one.errors}}</div>
+                      </div>
+                      <div class="form-group">
+                        <label>Paragraph 2</label>
+                        {{form.about_us_two}}
+                        <div style="color: red;">{{form.about_us_two.errors}}</div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Active Members</label>
+                            {{form.about_number_one}}
+                            <div style="color: red;">{{form.about_number_one.errors}}</div>
+                          </div>
+                        </div>
+                          <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Years of Research</label>
+                            {{form.about_number_two}}
+                            <div style="color: red;">{{form.about_number_two.errors}}</div>
+                          </div>
+                        </div>
+                          <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Proposed Reforms</label>
+                            {{form.about_number_three}}
+                            <div style="color: red;">{{form.about_number_three.errors}}</div>
+                          </div>
+                        </div>
+                          <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Vision & Mision</label>
+                            {{form.about_number_four}}
+                            <div style="color: red;">{{form.about_number_four.errors}}</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Sub Title</label>
+                        {{form.about_sub_title}}
+                        <div style="color: red;">{{form.about_sub_title.errors}}</div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Sub Paragraph</label>
+                        {{form.about_sub_para}}
+                        <div style="color: red;">{{form.about_sub_para.errors}}</div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Paragraph 1</label>
+                            {{form.about_sub_para_one}}
+                            <div style="color: red;">{{form.about_sub_para_one.errors}}</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Paragraph 2</label>
+                            {{form.about_sub_para_two}}
+                            <div style="color: red;">{{form.about_sub_para_two.errors}}</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Paragraph 3</label>
+                            {{form.about_sub_para_three}}
+                            <div style="color: red;">{{form.about_sub_para_three.errors}}</div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <input type="submit" class="btn btn-success mr-2"/>
+                      <button class="btn btn-light">Cancel</button>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="container-fluid clearfix">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i>
+              </span>
+            </div>
+          </footer>
+          <!-- partial -->
+{%endblock%}

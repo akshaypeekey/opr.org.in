@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'frontend/base.html' %}
 {% block content %}
 <!--==========================
     Hero Section
@@ -11,7 +11,7 @@
   </section><!-- #hero -->
 
   <main id="main">
-
+{% for data in data %}
     <!--==========================
       About Us Section
     ============================-->
@@ -24,8 +24,8 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <p class="text-justify wow fadeInUp" data-wow-delay="0.4s">The OPR’s Vision is to help the people and the government to establish true democracy in India, with corruption-free, fair, effective and uniform law for everyone in the nation, so that every citizen will have basic rights to lead a decent life with one’s own effort, without fear or having to bow to anyone. The OPR has proposed a set of reforms to the existing Constitution, under the name of the ‘Constitution for the People’ (CP) with 430 sections, providing tangible minimum guarantee for all citizens to prosper.  The OPR will achieve this vision with the right principles.</p>
-            <p class="text-justify wow fadeInUp" data-wow-delay="0.6s">The OPR has proposed a set of reforms to the existing Constitution, under the name of the ‘Constitution for the People’ (CP) with 430 sections, providing tangible minimum guarantee for all citizens to prosper.  The OPR will achieve this vision with the right principles.</p>
+            <p class="text-justify wow fadeInUp" data-wow-delay="0.4s">{{data.vision_para_one}}</p>
+            <p class="text-justify wow fadeInUp" data-wow-delay="0.6s">{{data.vision_para_two}}</p>
           </div>
 
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp" data-wow-delay="0.2s"></div>
@@ -44,17 +44,17 @@
           <div class="container mt-5">
           <div class="row">
             <div class="col">
-                <p class="text-justify wow fadeInUp" data-wow-delay="0.2s">The OPR’s Mission is to bring about a true democracy where a four level Government system will be in place, at Community, District, State and National level.  The people of the Nation will always have the legislative power of the Nation, exercisable through the Delegates, elected by the people of the Nation, as provided under the various sections of the CP.<hr></p>
+                <p class="text-justify wow fadeInUp" data-wow-delay="0.2s">{{data.mission_para_one}}<hr></p>
             </div>
             <div class="col">
-                <p class="text-justify wow fadeInUp" data-wow-delay="0.4s">A democracy where the majority of the people have the power at all times, to reject an unfair or unjust decision by an elected Member of the Government and remove and replace him with another person, through a reasonably realistic and simple process.  The people have the right to know about all Government matters and actions at all times.<hr></p>
+                <p class="text-justify wow fadeInUp" data-wow-delay="0.4s">{{data.mission_para_two}}<hr></p>
             </div>
             <div class="w-100"></div>
             <div class="col">
-                <p class="text-justify wow fadeInUp" data-wow-delay="0.2s">A person above eighteen years of age is eligible to apply for a paid employment.  The employer will always provide a reasonable minimum service standard. The minimum salary for any full time job will be twenty six thousand rupees per month.  An allowance of thirteen thousand rupees per month will be paid to all with no income who do not get a job.</p>
+                <p class="text-justify wow fadeInUp" data-wow-delay="0.2s">{{data.mission_para_three}}</p>
             </div>
             <div class="col">
-                <p class="text-justify wow fadeInUp" data-wow-delay="0.4s">There will be a reasonable service system to cater for the need of the people of the Nation without any harassment.  The education and medical treatment will be fully funded by the public money and at no cost to individual citizen recipient.  Affordable housing schemes will be provided that will not stress out citizens.</p>
+                <p class="text-justify wow fadeInUp" data-wow-delay="0.4s">{{data.mission_para_four}}</p>
             </div>
           </div>
           </div>
@@ -72,12 +72,12 @@
 
   				<div class="col-lg-4 col-10 text-center wow zoomIn mb-4" data-wow-delay="0.2s">
                   <p>Download The Constitution for the People</p>
-                  <button type="button" class="btn btn-success">Download CP</button>
+                  <button type="button" class="btn btn-success">{{ data.download_cp }}</button>
   				</div>
 
                 <div class="col-lg-4 col-10 text-center wow zoomIn mb-4" data-wow-delay="0.4s">
                   <p>Download The Constitution of the OPR</p>
-                  <button type="button" class="btn btn-success">Download COPR</button>
+                  <button type="button" class="btn btn-success">{{ data.download_copr }}</button>
                 </div>
 
                 <div class="col-lg-4 col-10 text-center wow zoomIn mb-4" data-wow-delay="0.6s">
@@ -88,19 +88,9 @@
                       Download in
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">malayalam</a>
-                      <a class="dropdown-item" href="#">English</a>
-                      <a class="dropdown-item" href="#">tamil</a>
-                      <a class="dropdown-item" href="#">tamil</a>
-                      <a class="dropdown-item" href="#">malayalam</a>
-                      <a class="dropdown-item" href="#">English</a>
-                      <a class="dropdown-item" href="#">tamil</a>
-                      <a class="dropdown-item" href="#">tamil</a>
-                      <a class="dropdown-item" href="#">malayalam</a>
-                      <a class="dropdown-item" href="#">English</a>
-                      <a class="dropdown-item" href="#">tamil</a>
-                      <a class="dropdown-item" href="#">tamil</a>
-
+                        {% for name in manifesto_language %}
+                      <a class="dropdown-item" href="{{download_manifesto}}">{{name.manifesto_language}}</a>
+                        {% endfor %}
                     </div>
                   </div>
                 </div>
@@ -111,7 +101,7 @@
     </section><!-- #facts -->
 
 
-
+{% endfor %}
   </main>
 
 {%endblock%}

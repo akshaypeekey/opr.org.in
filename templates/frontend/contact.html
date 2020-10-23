@@ -1,10 +1,10 @@
- {% extends 'base.html' %}
+ {% extends 'frontend/base.html' %}
 {% block content %}
  <!--==========================
     Hero Section
   ============================-->
 
-  <section id="hero">
+ <section id="hero" xmlns="http://www.w3.org/1999/html">
     <div class="hero-container">
       <h1 class="wow zoomIn">CONTACT</h1>
     </div>
@@ -23,7 +23,7 @@
       <div class="container mt-5">
         <div class="row justify-content-center">
 
-          <div class="col-lg-3 col-md-4">
+          <div class="col-lg-3 col-md-3">
 
             <div class="info wow fadeInUp">
               <div>
@@ -52,28 +52,40 @@
 
           </div>
 
-          <div class="col-lg-5 col-md-8">
+          <div class="col-lg-9 col-md-9">
             <div class="form wow fadeInUp">
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
-                <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validation"></div>
+
+              <form action="" method="post" class="contactForm">
+                {% csrf_token %}
+                <div class="row">
+                   <div class="col-sm-12">
+                    <div class="form-group">
+                      <label class="control-label">Your Name</label>
+                      {{form.contact_name}}
+                    </div>
+                   </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label class="control-label">Email Address</label>
+                      {{form.contact_email}}
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label class="control-label">Subject</label>
+                      {{form.contact_subject}}
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label class="control-label">Message</label>
+                      {{form.contact_message}}
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validation"></div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
+                    <input type="submit" value="SEND MESSAGE">
               </form>
             </div>
           </div>

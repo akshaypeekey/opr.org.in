@@ -17,7 +17,7 @@ class Index(models.Model):
         return self.index_title
 
 
-class About(models.Model):
+class AboutUS(models.Model):
     about_title = models.CharField(max_length=10)
     about_us_one = models.CharField(max_length=1100)
     about_us_two = models.CharField(max_length=1000)
@@ -35,7 +35,7 @@ class About(models.Model):
         return self.about_title
 
 
-class Vision(models.Model):
+class VisionMission(models.Model):
     vision_title = models.CharField(max_length=10)
     vision_para_one = models.CharField(max_length=500)
     vision_para_two = models.CharField(max_length=500)
@@ -52,7 +52,7 @@ class Vision(models.Model):
         return self.vision_title
 
 
-class Events(models.Model):
+class Event(models.Model):
     events_title = models.CharField(max_length=10)
     events_para_one = models.CharField(max_length=1000)
     events_para_two = models.CharField(max_length=1000)
@@ -61,27 +61,3 @@ class Events(models.Model):
 
     def __str__(self):
         return self.events_title
-
-
-class Contact(models.Model):
-    contact_name = models.CharField(max_length=120)
-    contact_email = models.EmailField()
-    contact_subject = models.CharField(max_length=120)
-    contact_message = models.CharField(max_length=120)
-
-    def __str__(self):
-        return self.contact_name
-
-
-class Member(models.Model):
-    name = models.CharField(max_length=120)
-    residential_address = models.CharField(max_length=120)
-    district = models.CharField(max_length=120)
-    state = models.CharField(max_length=120)
-    country = models.CharField(max_length=120)
-    pin = models.IntegerField()
-    phone = models.IntegerField()
-    age = models.CharField(max_length=120)
-
-    def __str__(self):
-        return self.name

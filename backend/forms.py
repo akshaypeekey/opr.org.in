@@ -24,7 +24,7 @@ class IndexForm(ModelForm):
 
 class AboutForm(ModelForm):
     class Meta:
-        model = About
+        model = AboutUS
         exclude = ['about_title']
         widgets = {
             'about_us_one': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
@@ -46,7 +46,7 @@ class AboutForm(ModelForm):
 
 class VisionForm(ModelForm):
     class Meta:
-        model = Vision
+        model = VisionMission
         exclude = ['vision_title']
         widgets = {
             'vision_para_one': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
@@ -67,7 +67,7 @@ class VisionForm(ModelForm):
 
 class EventsForm(ModelForm):
     class Meta:
-        model = Events
+        model = Event
         exclude = ['events_title']
         widgets = {
             'events_para_one': forms.Textarea(attrs={'class': 'form-control', 'rows': '7'}),
@@ -76,24 +76,6 @@ class EventsForm(ModelForm):
             'events_para_four': forms.Textarea(attrs={'class': 'form-control', 'rows': '7'}),
         }
 
-
-        def clean(self):
-            pass
-
-
-class ContactForm(ModelForm):
-    class Meta:
-        model = Contact
-        fields = "__all__"
-
-        def clean(self):
-            pass
-
-
-class MemberForm(ModelForm):
-    class Meta:
-        model = Member
-        fields = "__all__"
 
         def clean(self):
             pass

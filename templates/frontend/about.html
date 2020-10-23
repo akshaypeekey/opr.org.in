@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'frontend/base.html' %}
 {% block content %}
 <!--==========================
     Hero Section
@@ -10,7 +10,7 @@
   </section><!-- #hero -->
 
   <main id="main">
-
+  {% for data in data %}
     <!--==========================
       About Us Section
     ============================-->
@@ -19,8 +19,8 @@
         <div class="row about-container">
 
           <div class="col-lg-6 content order-lg-1 order-2">
-            <p class="text-justify-left wow fadeInUp" data-wow-delay="0.4s">India obtained freedom 72 years ago.  We obviously have progressed a lot too.  Although, 72 years ago, we did not even have enough food for all Indians, today, in India, we have enough resources for all Indians not only just to eat, but also to live in prosperity.  In spite of this, a significant number of Indians continue to live in poverty!  Why is it so?  It is because those who were in power, long, long ago, made most people poor for easier control like slaves.  To achieve their vested interests, they were not giving people’s due shares using biased rules.  They retained their vested interests, using the “divide and rule” policy, manipulating the poor to keep them fighting among themselves in the name of God, Religion, Caste, State, Language, Political affinity, Position, Class, Grade etc.  This infighting shifted away the focus of the poor from working to succeed in life.  Those in power now don’t know how to change it.  Therefore the slave mentality and sub-ordinate mentality of the people have not yet changed!</p>
-            <p class="text-justify wow fadeInUp" data-wow-delay="0.6s">People, we need to stop this.  There is a way to change this sad state of affairs, and for all Indians to get fair and rightful shares and build a decent life.  Let us make fair rules by ourselves, for us.  In a democracy, when we have majority, we have the right and power to do that.  There are provisions existing in our Constitution to make amendments for the benefit of the people.  The OPR has proposed a set of reforms to the existing Constitution, under the name of the ‘Constitution for the People’ (CP) with 430 sections, providing tangible minimum guarantee for all citizens to prosper.  Achieving this is OPR’s vision. Check it out at www.opr.org.in website.  If you are in agreement, join the OPR; together, we can do it.</p>
+            <p class="text-justify-left wow fadeInUp" data-wow-delay="0.4s">{{ data.about_us_one }}</p>
+            <p class="text-justify wow fadeInUp" data-wow-delay="0.6s">{{ data.about_us_two }}</p>
           </div>
 
           <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp" data-wow-delay="0.2s"></div>
@@ -40,22 +40,22 @@
         <div class="row counters">
 
   				<div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">502</span>
+            <span data-toggle="counter-up">{{data.about_number_one}}</span>
             <p>Active Members</p>
   				</div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">20</span>
+            <span data-toggle="counter-up">{{data.about_number_two}}</span>
             <p>Years of Research</p>
   				</div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">430</span>
+            <span data-toggle="counter-up">{{data.about_number_three}}</span>
             <p>Proposed Reforms</p>
   				</div>
 
             <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">430</span>
+            <span data-toggle="counter-up">{{data.about_number_four}}</span>
             <p>Sample Text</p>
   				</div>
 
@@ -71,8 +71,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-9 text-center text-lg-left">
-            <h3 class="cta-title wow zoomIn">Sample Text</h3>
-            <p class="cta-text text-justify wow fadeInUp" data-wow-delay="0.4s"> The OPR will achieve its vision only by the right principles. The Organisation for People’s Rights (OPR) shall bear true faith and allegiance to the Constitution of India as by law established, and to the principles of socialism, secularism and democracy and would uphold the sovereignty, unity and integrity of India.</p>
+            <h3 class="cta-title wow zoomIn">{{data.about_sub_title}}</h3>
+            <p class="cta-text text-justify wow fadeInUp" data-wow-delay="0.4s">{{ data.about_sub_para }}</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle wow zoomIn" href="#">Join OPR NOW</a>
@@ -87,19 +87,19 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.4s">
-                    <p class="text-justify">From now on, let’s stop blaming anyone for not getting what we rightly deserve.  Let’s now stop infighting too.  If you are an Indian Citizen, aged 18 years or above, and agree with the OPR’s vision, then, apply and pay a membership fee of ten rupees online at www.opr.org.in and become a member.  Your signature is not required when you apply online.  After you join, ensure that all your near and dear ones understand the OPR’s vision.</p>
+                    <p class="text-justify">{{data.about_sub_para_one}}</p>
                 </div>
                 <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-                    <p class="text-justify">Show the proposed reforms at www.opr.org.in to them.  Use social media and Email too to spread the message.  Enlighten them of what we together can achieve and encourage them to spread the OPR’s vision throughout the nation.</p>
+                    <p class="text-justify">{{data.about_sub_para_two}}</p>
                 </div>
                 <div class="col-sm-4 wow fadeInUp" data-wow-delay="0.8s">
-                    <p class="text-justify">Let us work until the majority of the Indians say, “We want to make, all of the 430 sections of the Constitution for the People, India’s rules”</p>
+                    <p class="text-justify">{{data.about_sub_para_three}}</p>
                 </div>
               </div>
             </div>
         </div>
     </div>
 
-
+{% endfor %}
   </main>
 {% endblock %}

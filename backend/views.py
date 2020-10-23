@@ -1,14 +1,16 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import *
 from .forms import *
 from .models import *
+from frontend.models import *
 
 
 class Home(TemplateView):
     model = Index
-    template_name = "dashboard.html"
+    template_name = "backend/dashboard.html"
     form_class = IndexForm
     def get(self, request, *args, **kwargs):
 
@@ -20,7 +22,7 @@ class Home(TemplateView):
 class IndexUpdateView(SuccessMessageMixin, UpdateView):
     model = Index
     form_class = IndexForm
-    template_name = 'index.html'
+    template_name = 'backend/index.html'
     success_message = 'Data Updated Successfully!!!!'
 
     success_url = reverse_lazy('dashboard')
@@ -30,9 +32,9 @@ class IndexUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class AboutUpdateView(SuccessMessageMixin, UpdateView):
-    model = About
+    model = AboutUS
     form_class = AboutForm
-    template_name = 'about.html'
+    template_name = 'backend/about.html'
     success_message = 'Data Updated Successfully!!!!'
 
     success_url = reverse_lazy('dashboard')
@@ -42,9 +44,9 @@ class AboutUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class VisionUpdateView(SuccessMessageMixin, UpdateView):
-    model = Vision
+    model = VisionMission
     form_class = VisionForm
-    template_name = 'vision.html'
+    template_name = 'backend/vision.html'
     success_message = 'Data Updated Successfully!!!!'
     success_url = reverse_lazy('dashboard')
 
@@ -53,9 +55,9 @@ class VisionUpdateView(SuccessMessageMixin, UpdateView):
 
 
 class EventsUpdateView(SuccessMessageMixin, UpdateView):
-    model = Events
+    model = Event
     form_class = EventsForm
-    template_name = 'events.html'
+    template_name = 'backend/events.html'
     success_message = 'Data Updated Successfully!!!!'
     success_url = reverse_lazy('dashboard')
 
@@ -63,26 +65,6 @@ class EventsUpdateView(SuccessMessageMixin, UpdateView):
         return self.request.path
 
 
-class Contact(TemplateView):
+class ContactListView(LoginRequiredMixin, ListView):
     model = Contact
-    template_name = "contact.html"
-    form_class = ContactForm
-    def get(self, request, *args, **kwargs):
-
-        form = self.form_class
-        context = {}
-        context['form'] = form
-        return render(request, self.template_name, context)
-
-
-class RegisteredUser(TemplateView):
-    model = Contact
-    template_name = "registration.html"
-    form_class = ContactForm
-    def get(self, request, *args, **kwargs):
-
-        form = self.form_class
-        context = {}
-        context['form'] = form
-        return render(request, self.template_name, context)
-
+    template_name = "backend/contact.html"
