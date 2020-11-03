@@ -16,28 +16,36 @@
                   <div class="card-body">
                     <h4 class="card-title">Bordered table</h4>
                     <table class="table table-bordered">
-                      <thead>
                         <tr>
                           <th> Name </th>
-                          <th> Email </th>
-                          <th> Subject </th>
-                          <th> Date & Time </th>
-                          <th> Action </th>
+                            <td> {{details.contact_name}} </td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {% for data in object_list %}
-                          <tr>
-                            <td> {{data.contact_name}} </td>
-                            <td>{{data.contact_email}}</td>
-                            <td> {{data.contact_subject}} </td>
-                            <td> {{data.date_time}}</td>
-                            <td><a href="{% url 'contact_message' data.id %}" class="btn btn-primary fa fa-eye"></a>
-                                <a href="{% url 'message_delete' data.id %}" class="btn btn-danger fa fa-window-close"></a> </td>
-                          </tr>
-                        {% endfor %}
-                      </tbody>
+                        <tr>
+                          <th> Email </th>
+                            <td> {{details.contact_email}} </td>
+                        </tr>
+                        <tr>
+                          <th> Subject </th>
+                            <td> {{details.contact_subject}} </td>
+                        </tr>
+                        <tr>
+                          <th> Date & Time </th>
+                            <td> {{details.date_time}}</td>
+                        </tr>
+                        <tr>
+                          <th> Message </th>
+                            <td> {{details.contact_message}}</td>
+                        </tr>
                     </table>
+                      <div class="row" align="center">
+                          <div class="col-sm-4"></div>
+                          <form method="post" class="col-sm-4 my-3">
+                            {% csrf_token %}
+                              <p class="h4">Do you want to delete this message?</p>
+                              <input type="submit" class="btn btn-danger" value="Delete">
+                              <div class="col-sm-4"></div>
+                          </form>
+                      </div>
                   </div>
                 </div>
               </div>

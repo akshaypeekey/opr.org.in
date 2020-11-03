@@ -68,3 +68,17 @@ class EventsUpdateView(SuccessMessageMixin, UpdateView):
 class ContactListView(LoginRequiredMixin, ListView):
     model = Contact
     template_name = "backend/contact.html"
+
+
+class ContactMessageView(LoginRequiredMixin, DetailView):
+    model = Contact
+    template_name = "backend/messages.html"
+    context_object_name = "details"
+
+
+class DeleteMessageView(LoginRequiredMixin, DeleteView):
+    model = Contact
+    template_name = "backend/message_delete.html"
+    context_object_name = "details"
+    success_url = reverse_lazy('dashboard')
+

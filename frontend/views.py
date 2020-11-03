@@ -69,13 +69,22 @@ class ContactUS(TemplateView):
             return render(request, self.template_name, context)
 
 
-class RegisteredUser(TemplateView):
-    model = Contact
-    template_name = "backend/registration.html"
-    form_class = ContactForm
-    def get(self, request, *args, **kwargs):
+class Register(TemplateView):
+    model = Register
+    template_name = "frontend/registration.html"
+    form_class = MembershipForm
 
+    def get(self, request, *args, **kwargs):
         form = self.form_class
-        context = {}
-        context['form'] = form
+        context = {'form': form}
         return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('register')
+        else:
+            form = self.form_class(request.POST)
+            context = {'form': form}
+            return render(request, self.template_name, context)

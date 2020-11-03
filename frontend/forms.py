@@ -6,7 +6,7 @@ from .models import *
 class ContactForm(ModelForm):
     class Meta:
         model = Contact
-        exclude = ['date_time']
+        exclude = ['date_time', 'read_status']
         widgets = {
             'contact_name': forms.TextInput(attrs={'class': 'form-control'}),
             'contact_email': forms.TextInput(attrs={'class': 'form-control'}),
@@ -18,10 +18,10 @@ class ContactForm(ModelForm):
             pass
 
 
-class MemberForm(ModelForm):
+class MembershipForm(ModelForm):
     class Meta:
-        model = Member
-        fields = "__all__"
+        model = Register
+        exclude = ['date_time', 'membership_status']
 
         def clean(self):
             pass

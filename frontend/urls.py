@@ -8,5 +8,6 @@ urlpatterns = [
     path('vision&mission/', Vision.as_view(), name='visionmission'),
     path('event/', Events.as_view(), name='event'),
     path('contactus/', ContactUS.as_view(), name='contactus'),
+    path('register/', Register.as_view(), name='register'),
     ]
 
