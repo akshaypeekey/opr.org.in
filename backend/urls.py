@@ -28,6 +28,6 @@ urlpatterns = [
     path('contact_list/', ContactListView.as_view(), name='contact_list'),
     path('contact_message/<pk>/', ContactMessageView.as_view(), name='contact_message'),
     path('message_delete/<pk>/', DeleteMessageView.as_view(), name='message_delete'),
-    path('registred-user/', ContactListView.as_view(), name='registred-user'),
+    path('registred-user/', RegistrationListView.as_view(), name='registred-user'),
 
 ]

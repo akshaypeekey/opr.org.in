@@ -1,55 +1,30 @@
-
+{% extends 'frontend/base.html' %}
 {% block content %}
-          <div class="content-wrapper">
-            <!-- Page Title Header Starts-->
-            <div class="row page-title-header">
-              <div class="col-12">
-                <div class="page-header">
-                  <h4 class="page-title">Registered User</h4>
-                </div>
-              </div>
-            </div>
-            <!-- Page Title Header Ends-->
+      <!-- Default form register -->
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 mt-5 bg-light">
 
-            <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Bordered table</h4>
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
+      <div class="text-center my-3">
+        <p class="h2 text-uppercase font-weight-bold">Membership Registration</p>
+        <p class="h5 font-weight-bold">The Organisation for People’s Rights (OPR)</p>
+        <p class="h6 font-weight-bold">Nalukett, Vattoli, PO: Chittariparamba, Kannur District, Kerala, 670650 www.opr.org.in</p>
+        <hr>
+      </div>
+       <form method="post">
+            {% csrf_token %}
 
-                          <th> Name </th>
-                          <th> Residential Address </th>
-                          <th> District </th>
-                          <th> State </th>
-                          <th> Country </th>
-                          <th> PIN Code </th>
-                          <th> Phone Number </th>
-                          <th> Age </th>
-                          <th> Membership Number </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
+                {% for field in form %}
 
-                          <td> Herman Beck </td>
-                          <td>fdgdfg</td>
-                          <td> $ 77.99 </td>
-                          <td> May 15, 2015 </td>
-                          <td> May 15, 2015 </td>
-                          <td>fdgdfg</td>
-                          <td> $ 77.99 </td>
-                          <td> May 15, 2015 </td>
-                          <td> May 15, 2015 </td>
+                   {{field}}
+                   {{field.errors}}
 
+                {% endfor %}
 
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-          </div>
-
+                <input type="submit" class="btn btn-success" value="Submit" id="submit">
+       </form>
+      <div class="col-md-2"></div>
+  </div>
+</div>
+<!-- Default form register -->
 {%endblock%}

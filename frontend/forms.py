@@ -23,5 +23,16 @@ class MembershipForm(ModelForm):
         model = Register
         exclude = ['date_time', 'membership_status']
 
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Name'}),
+            'residential_address': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Residential Address'}),
+            'district': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'District'}),
+            'state': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'State'}),
+            'country': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Country'}),
+            'pin': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'PIN'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Phone Number'}),
+            'age': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Age'}),
+        }
+
         def clean(self):
             pass

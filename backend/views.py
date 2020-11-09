@@ -82,3 +82,7 @@ class DeleteMessageView(LoginRequiredMixin, DeleteView):
     context_object_name = "details"
     success_url = reverse_lazy('dashboard')
 
+
+class RegistrationListView(LoginRequiredMixin, ListView):
+    model = Register
+    template_name = "backend/registration.html"
